@@ -45,45 +45,19 @@ void GetMaxNumberInRow(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1) - 1; j++)
+        for (int e = 1; e < array.GetLength(1); e++)
         {
-            if (array[i, j] < array[i, j + 1])
+            for (int j = 0; j < array.GetLength(1) - 1; j++)
             {
-                int temp = array[i, j];
-                array[i, j] = array[i, j + 1];
-                array[i, j + 1] = temp;
+                if (array[i, j] < array[i, j + 1])
+                {
+                    int temp = array[i, j];
+                    array[i, j] = array[i, j + 1];
+                    array[i, j + 1] = temp;
+                }
             }
         }
     }
 }*/
-Console.Write("Введите количество элементов в массиве: ");
-int size = int.Parse(Console.ReadLine()!);
-int[] array = GetArray(size);
-Console.WriteLine($"{String.Join(" ", array)}");
-//Method1--------------------------------------------------------
-int[] GetArray(int size)
-{
- int[] array = new int[size];
-for (int i = 0; i < size; i++)
-{
-    array[i] = new Random().Next(101);
-}
-return array;
-}
-//Method2--------------------------------------------------------
-void SelectionSort(int[] array)
-{
-    for (int i = 0; i < array.Length - 1; i++)
-    {
-        int minPosition = i;
-        for (int j = i + 1; j < array.Length; j++)
-        {
-            if (array[j] < array[minPosition]) minPosition = j;
-        }
-        int temporary = array[i];
-        array[i] = array[minPosition];
-        array[minPosition] = temporary;
-    }
-}
-SelectionSort(array);
-Console.WriteLine($"{String.Join(" ", array)}");
+
+
