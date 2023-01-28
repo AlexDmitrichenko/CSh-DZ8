@@ -68,16 +68,11 @@ void GetMaxNumberInRow(int[,] array)
 //5 2 6 7
 //Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей 
 //суммой элементов: 1 строка
-/*Console.Write("Введите количество строк: ");
-int rows = int.Parse(Console.ReadLine()!);
-Console.Write("Введите количество столбцов: ");
-int columns = int.Parse(Console.ReadLine()!);
-int[,] array = GetArray(rows, columns, 0, 10);
+/*int[,] array = GetArray(4, 4, 0, 10);
 PrintArray(array);
 Console.WriteLine();
 int[] SumRow = SumEveryRow (array);
-Console.WriteLine($"{String.Join(" ", array)}");
-//GetMaxRow(array);
+GetNumberRowMin(SumRow);
 //Methods---------------------------------------------------- 
 int[,] GetArray(int m, int n, int minValue, int maxValue)
 {
@@ -86,7 +81,7 @@ int[,] GetArray(int m, int n, int minValue, int maxValue)
     {
         for (int j = 0; j < n; j++)
         {
-            result[i, j] = new Random().Next(minValue, maxValue + 1);
+            result[i, j] = new Random().Next(minValue, maxValue);
         }
     }
     return result;
@@ -115,7 +110,24 @@ int[] SumEveryRow(int[,] array)
         }
     }
     return sumarray;
+}
+void GetNumberRowMin(int[] array)
+{
+    int min = array[0];
+    int minrow = 1;
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] < min)
+        {
+            min = array[i]; minrow = i + 1;
+        }
+    }
+    Console.Write($"Номер строки с наименьшей суммой элементов: {minrow}");
 }*/
+
+
+
+
 
 
 
