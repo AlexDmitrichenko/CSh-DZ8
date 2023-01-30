@@ -131,18 +131,29 @@ void GetNumberRowMin(int[] array)
 //Результирующая матрица будет:
 //18 20
 //15 18
-Console.Write("Введите количество строк: ");
-int rows = int.Parse(Console.ReadLine()!);
-Console.Write("Введите количество столбцов: ");
-int columns = int.Parse(Console.ReadLine()!);
-int[,] array1 = GetArray1(rows, columns, 0, 10);
+/*Console.Write("Введите количество строк матрицы 1: ");
+int rows1 = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество столбцов матрицы 1 : ");
+int columns1 = int.Parse(Console.ReadLine()!);
+int[,] array1 = GetArray1(rows1, columns1, 1, 9);
 PrintArray(array1);
 Console.WriteLine();
-int[,] array2 = GetArray2(rows, columns, 0, 10);
+Console.Write("Введите количество строк матрицы 2: ");
+int rows2 = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество строк матрицы 2: ");
+int columns2 = int.Parse(Console.ReadLine()!);
+int[,] array2 = GetArray2(rows2, columns2, 1, 9);
 PrintArray(array2);
 Console.WriteLine();
-int[,] ChangedArray = GetMultiplicationArrays(newArray);
-PrintArray(ChangedArray);
+if (rows1 != columns2)
+{
+    Console.WriteLine("Произведение двух матриц найти невозможно");
+}
+else
+{
+    int[,] ChangedArray = GetMultiplicationArrays(array1, array2);
+    PrintArray(ChangedArray);
+}
 //Methods---------------------------------------------------- 
 int[,] GetArray1(int m, int n, int minValue, int maxValue)
 {
@@ -182,15 +193,20 @@ void PrintArray(int[,] array)
 int[,] GetMultiplicationArrays(int[,] array1, int[,] array2)
 {
     int[,] newArray = new int[array1.GetLength(0), array2.GetLength(1)];
-    for (int i = 0; i < array1.GetLength(0); i++)
+     for (int i = 0; i < array1.GetLength(0); i++)
     {
         for (int j = 0; j < array2.GetLength(1); j++)
         {
-            newArray[i, j] = array[j, i];
+            int sum = 0;
+            for (int m = 0; m < array2.GetLength(1); m++)
+            {
+                int mult = array1[i, m] * array2[m, j];
+                sum += mult;
+            }
+            newArray[i, j] = sum;
         }
     }
     return newArray;
-}
-
+}*/
 
 
